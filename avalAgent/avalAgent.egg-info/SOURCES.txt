@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+avalAgent/avalAgent.egg-info/PKG-INFO
+avalAgent/avalAgent.egg-info/SOURCES.txt
+avalAgent/avalAgent.egg-info/dependency_links.txt
+avalAgent/avalAgent.egg-info/requires.txt
+avalAgent/avalAgent.egg-info/top_level.txt
+tests/test_agent.py
+tests/test_logger.py

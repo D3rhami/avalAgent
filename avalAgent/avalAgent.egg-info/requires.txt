@@ -1,0 +1,5 @@
+pydantic~=2.11.4
+requests~=2.32.3
+langchain-core~=0.3.58
+langchain-openai~=0.3.16
+openai~=1.77.0

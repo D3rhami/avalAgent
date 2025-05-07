@@ -1,0 +1,35 @@
+[project]
+name = "avalAgent"
+version = "1.0.2.3"
+description = "AI agent wrapper for AvalAI API with retry and model fallback support"
+readme = "README.md"
+authors = [
+  { name = "Amirhossein Derhami", email = "D3rhami@gmail.com" }
+]
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["ai", "chatbot", "avalai", "langchain", "openai-wrapper"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+
+dependencies = [
+  "pydantic>=2.0.0",
+  "requests>=2.25.0",
+  "langchain-core>=0.1.0",
+  "langchain-openai>=0.0.1",
+  "openai>=1.0.0",
+  "tabulate~=0.9.0"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

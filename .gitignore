@@ -2,3 +2,8 @@
 ./.venv/*
 ./avalAgent.egg-info/*
 ./*.egg-info/*
+./tests/*
+/avalAgent.egg-info/
+/*.egg-info/
+/*.egg-*/
+./.idea/
