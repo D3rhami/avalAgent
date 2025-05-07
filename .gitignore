@@ -7,3 +7,9 @@
 /*.egg-info/
 /*.egg-*/
 ./.idea/
+.idea/
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/compiler.xml
