@@ -1,6 +1,6 @@
 [project]
 name = "avalAgent"
-version = "1.0.2.3"
+version = "1.0.3"
 description = "AI agent wrapper for AvalAI API with retry and model fallback support"
 readme = "README.md"
 authors = [
