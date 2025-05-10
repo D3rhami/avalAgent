@@ -1,4 +1,4 @@
-🎃 [To change the language to English click here.](README_EN.md)
+🎃 [To change the language to English click here.](https://github.com/D3rhami/avalai-agent/blob/versions/README_EN.md)
 
 # AvalAgent 1.0.4
 

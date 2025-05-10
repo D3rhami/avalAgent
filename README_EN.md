@@ -1,5 +1,5 @@
 
-🎃 [تغییر زبان به فارسی اینجا کلیک کنید](README.md)
+🎃 [تغییر زبان به فارسی اینجا کلیک کنید](https://github.com/D3rhami/avalai-agent/blob/versions/README.md)
 
 # AvalAgent 1.0.4
 
