@@ -13,3 +13,4 @@
 .idea/tasks.xml
 .idea/usage.statistics.xml
 .idea/compiler.xml
+/avalAgent/avalAgent.egg-info/

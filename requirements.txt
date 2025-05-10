@@ -4,3 +4,19 @@ langchain-core~=0.3.58
 langchain-openai~=0.3.16
 openai~=1.77.0
 tabulate~=0.9.0
+
+so rewrite the get responded to get a confige dictionary.{model: str = None, temperature: float = 0.1,
+                     use_memory: bool = None}
+
+and then pass it in to eachother.
+the create_optimized_prompt rename to create_structed_prompt. also make the configuration dictionary arg for {  role: str,
+        knowledge: str,
+        input_formats: List[str],
+        output_formats: str,
+        strict_rules: List[str],
+        examples: List[str] = None,
+        ignores: List[str] = None}
+
+then in the code get the items in the config dictionary.like model =config.get("model",""),
+if model was empty or none in the get_response logger error and return None.
+

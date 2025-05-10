@@ -1,45 +1,52 @@
-# AvalAgent 1.0.3
+🎃 [To change the language to English click here.](README_EN.md)
 
-A Python client for interacting with AI models via the AvalAI OpenAI-compatible API, featuring automatic retries, model fallback, conversation memory, and robust error handling.
+# AvalAgent 1.0.4
 
-## Features
+یک کلاینت پایتون برای تعامل با مدل‌های هوش مصنوعی از طریق API سازگار با OpenAI شرکت AvalAI، با ویژگی‌هایی مانند تلاش‌های مجدد خودکار، پشتیبانی از مدل‌های جایگزین، حافظهٔ مکالمه، بهبود پرسش‌ها و مدیریت خطاهای قوی.
 
-- 🚀 **Multi-model support**: Works with GPT-4o, DeepSeek, Claude-3, and other AvalAI-supported models
-- 🔄 **Automatic retries & fallback**: Falls back to secondary models if the primary model fails
-- 🧠 **Conversation memory**: Maintains context across interactions (configurable size)
-- 💾 **Memory persistence**: Optional saving/loading of conversation history to disk
-- 🔒 **Secure API key handling**: Uses `SecretStr` for API key protection
-- 📝 **Built-in logging**: Detailed logging for debugging and monitoring API requests
-- ⚡ **LangChain integration**: Compatible with LangChain's message formats
-- 📊 **Credit monitoring**: Check API usage and remaining credits
+## ویژگی‌ها
 
-## Installation
+* 🚀 **پشتیبانی از چندین مدل**: قابل استفاده با GPT-4o، DeepSeek، Claude-3 و سایر مدل‌های پشتیبانی‌شده توسط AvalAI
+* 🔄 **تلاش‌های مجدد خودکار و پشتیبانی از مدل‌های جایگزین**: در صورت عدم موفقیت مدل اصلی، به مدل‌های ثانویه مراجعه می‌کند
+* 🧠 **حافظهٔ مکالمه**: حفظ زمینهٔ گفتگو در تعاملات (قابل تنظیم)
+* 💾 **ذخیره‌سازی حافظه**: امکان ذخیره و بارگذاری تاریخچهٔ مکالمات در دیسک
+* 🛠️ **بهبود پرسش‌ها**: تبدیل پرسش‌های خام به پرسش‌های ساختاریافته و بهینه
+* 🔒 **مدیریت ایمن کلید API**: استفاده از `SecretStr` برای حفاظت از کلید API
+* 📝 **ثبت گزارش داخلی**: ثبت گزارش‌های دقیق برای اشکال‌زدایی و نظارت بر درخواست‌های API
+* ⚡ **یکپارچه‌سازی با LangChain**: سازگار با فرمت‌های پیام LangChain
+* 📊 **نظارت بر اعتبار مصرفی**: بررسی میزان استفاده و اعتبار باقی‌مانده از API
+
+## نصب
 
 ```bash
 pip install avalAgent
 ```
 
-## Basic Usage
+
+
+## استفادهٔ پایه
 
 ```python
 from avalAgent.agent import AvalAgent
 from pydantic import SecretStr
 
-# Initialize with your AvalAI API key
+# مقداردهی اولیه با کلید API
 agent = AvalAgent(api_key=SecretStr("your-api-key-here"))
 
-# Get a response
+# دریافت پاسخ
 response = agent.get_response(
-    system_prompt="You are a helpful assistant.",
-    query="Explain quantum computing in simple terms"
+    system_prompt="شما یک دستیار مفید هستید.",
+    query="محاسبات کوانتومی را به زبان ساده توضیح بده"
 )
 
 print(response)
 ```
 
-## Examples
 
-### Example 1: Using Default Settings
+
+## مثال‌ها
+
+### مثال ۱: استفاده با تنظیمات پیش‌فرض
 
 ```python
 from avalAgent.agent import AvalAgent
@@ -48,14 +55,16 @@ from pydantic import SecretStr
 agent = AvalAgent(api_key=SecretStr("your-api-key-here"))
 
 response = agent.get_response(
-    system_prompt="You are a helpful assistant.",
-    query="Explain the theory of relativity"
+    system_prompt="شما یک دستیار مفید هستید.",
+    query="نظریهٔ نسبیت را توضیح بده"
 )
 
 print(response)
 ```
 
-### Example 2: Customizing Model Priority List and Retry Attempts
+
+
+### مثال ۲: سفارشی‌سازی لیست اولویت مدل‌ها و تعداد تلاش‌ها
 
 ```python
 from avalAgent.agent import AvalAgent
@@ -72,8 +81,8 @@ agent = AvalAgent(
 )
 
 response = agent.get_response(
-    system_prompt="You are a technical expert.",
-    query="Explain how blockchain works.",
+    system_prompt="شما یک کارشناس فنی هستید.",
+    query="بلاک‌چین چگونه کار می‌کند؟",
     model="gpt-4o",
     temperature=0.2
 )
@@ -81,40 +90,44 @@ response = agent.get_response(
 print(response)
 ```
 
-### Example 3: Using Conversation Memory
+
+
+### مثال ۳: استفاده از حافظهٔ مکالمه
 
 ```python
 from avalAgent.agent import AvalAgent
 from pydantic import SecretStr
 
-# Initialize with memory enabled
+# مقداردهی اولیه با حافظه فعال
 agent = AvalAgent(
     api_key=SecretStr("your-api-key-here"),
     use_memory=True,
     max_memory_size=5
 )
 
-# First query establishes context
+# پرسش اول برای ایجاد زمینه
 response1 = agent.get_response(
-    system_prompt="You are a travel assistant.",
-    query="Tell me about tourist attractions in Paris"
+    system_prompt="شما یک دستیار سفر هستید.",
+    query="جاذبه‌های گردشگری پاریس را معرفی کن"
 )
 
-# Second query benefits from memory
+# پرسش دوم با بهره‌گیری از حافظه
 response2 = agent.get_response(
-    query="Which of these are good for children?"
+    query="کدام‌یک برای کودکان مناسب هستند؟"
 )
 
 print(response2)
 ```
 
-### Example 4: Persistent Memory Across Sessions
+
+
+### مثال ۴: حافظهٔ پایدار بین جلسات
 
 ```python
 from avalAgent.agent import AvalAgent
 from pydantic import SecretStr
 
-# First session - save memory
+# جلسهٔ اول - ذخیرهٔ حافظه
 agent1 = AvalAgent(
     api_key=SecretStr("your-api-key-here"),
     use_memory=True,
@@ -123,11 +136,11 @@ agent1 = AvalAgent(
 )
 
 response = agent1.get_response(
-    system_prompt="You are a travel assistant.",
-    query="What are the best museums in London?"
+    system_prompt="شما یک دستیار سفر هستید.",
+    query="بهترین موزه‌های لندن کدام‌اند؟"
 )
 
-# Second session - load previous memory
+# جلسهٔ دوم - بارگذاری حافظهٔ قبلی
 agent2 = AvalAgent(
     api_key=SecretStr("your-api-key-here"),
     use_memory=True,
@@ -135,15 +148,17 @@ agent2 = AvalAgent(
     memory_file="travel_chat.json"
 )
 
-# Continues previous conversation
+# ادامهٔ گفتگو
 response = agent2.get_response(
-    query="Which of these have free entry?"
+    query="کدام‌یک ورودی رایگان دارند؟"
 )
 
 print(response)
 ```
 
-### Example 5: Credit Information Monitoring
+
+
+### مثال ۵: بهبود پرسش برای پست اینستاگرام
 
 ```python
 from avalAgent.agent import AvalAgent
@@ -151,50 +166,92 @@ from pydantic import SecretStr
 
 agent = AvalAgent(api_key=SecretStr("your-api-key-here"))
 
-# Option 1: Just get the data
+raw_prompt = """
+من به یک کپشن فارسی برای اینستاگرام نیاز دارم برای مجموعهٔ جدید کیف‌های لوکس ما.
+کپشن باید:
+- شامل ۲ تا ۳ پاراگراف کوتاه باشد
+- از ایموجی‌ها به‌صورت مناسب استفاده کند
+- بر روی هنر ساخت تأکید کند
+- شامل یک فراخوان برای اقدام باشد
+- لحن دوستانه اما شیک داشته باشد
+"""
+
+enhanced_prompt = agent.enhance_prompt(raw_prompt)
+print(enhanced_prompt)
+
+# سپس استفاده از پرسش بهبود یافته
+response = agent.get_response(
+    system_prompt=enhanced_prompt,
+    query="۳ گزینهٔ کپشن تولید کن"
+)
+print(response)
+```
+
+
+
+### مثال ۶: نظارت بر اطلاعات اعتبار
+
+```python
+from avalAgent.agent import AvalAgent
+from pydantic import SecretStr
+
+agent = AvalAgent(api_key=SecretStr("your-api-key-here"))
+
+# گزینه ۱: فقط دریافت داده
 credit_data = agent.get_credit_info()
 
-# Option 2: Log formatted table
+# گزینه ۲: ثبت جدول فرمت‌شده
 agent.log_credit_info_table()
 ```
 
-## Update: Version 1.0.3
 
-### New Features
-- **Conversation Memory**: Now supports maintaining context across multiple interactions
-- **Memory Persistence**: Optional saving/loading of conversation history to/from JSON files
-- **Enhanced Credit Monitoring**: Separate methods for getting data and logging formatted tables
 
-### Improvements
-- Added memory-related parameters to constructor:
-  - `use_memory`: Enable/disable conversation memory
-  - `max_memory_size`: Control how many messages to retain
-  - `persist_memory`: Enable disk persistence
-  - `memory_file`: Customize save location
-- New memory management methods:
-  - `add_to_memory()`: Manually add messages
-  - `get_memory()`: Retrieve conversation history
-  - `clear_memory()`: Reset conversation
-  - `save_memory()`/`load_memory()`: Disk persistence
+## به‌روزرسانی: نسخهٔ 1.0.4
 
-### Changes
-- Split `get_credit_info()` into:
-  - `get_credit_info()`: Returns raw data
-  - `log_credit_info_table()`: Displays formatted table
-- Memory is automatically used in `get_response()` when enabled
+### ویژگی‌های جدید
 
-## Model Support
+* **بهبود پرسش**: متد جدید `enhance_prompt()` برای تبدیل پرسش‌های خام به فرمت‌های ساختاریافته
+* **بهبود مدیریت خطا**: اعتبارسنجی قوی‌تر و پیام‌های خطای دقیق‌تر
+* **پیکربندی JSON**: پشتیبانی از پیکربندی مبتنی بر JSON در بهبود پرسش([Sider][1])
 
-OpenAI-compatible models available through the [AvalAI](https://avalai.ir/) API.
+### بهبودها
 
-## Error Handling
+* **تغییرات API**:
 
-The agent automatically:
-- Retries failed requests (up to 3 times by default)
-- Falls back to secondary models if the primary model fails
-- Handles rate limits and network errors gracefully
-- Provides detailed logging for debugging
+  * `get_response()` اکنون از پارامترهای `**config` به‌جای آرگومان‌های جداگانه استفاده می‌کند
+  * اعتبارسنجی پارامترها به‌صورت یکنواخت در تمام متدها
+* **مدیریت حافظه**:
 
-## License
+  * بهبود در مدیریت موارد خاص در ذخیره‌سازی حافظه
 
-MIT License - see the [LICENSE](LICENSE) file for details.
+### تغییرات
+
+* **تغییرات رفتاری**:
+
+  * `get_response()` اکنون به‌جای ایجاد خطا برای پرسش‌های خالی، `None` برمی‌گرداند
+  * اعتبارسنجی سخت‌گیرانه‌تر در `create_structured_prompt()`
+* **مستندسازی**:
+
+  * افزودن راهنمای فارسی
+  * مستندسازی دقیق‌تر پارامترها
+
+## پشتیبانی از مدل‌ها
+
+مدل‌های سازگار با OpenAI که از طریق API AvalAI در دسترس هستند.
+
+## مدیریت خطا
+
+این عامل به‌صورت خودکار:
+
+* تلاش‌های ناموفق را تا ۳ بار تکرار می‌کند (به‌صورت پیش‌فرض)
+* در صورت عدم موفقیت مدل اصلی، به مدل‌های جایگزین مراجعه می‌کند
+* با محدودیت‌های نرخ و خطاهای شبکه به‌صورت مؤثر برخورد می‌کند
+* گزارش‌های دقیق برای اشکال‌زدایی فراهم می‌کند
+
+## 🐞 مشکلات و پشتیبانی
+
+اگر باگ یا درخواست ویژگی دارید، لطفاً یک issue در [اینجا](https://github.com/D3rhami/avalai-agent/issues) باز کنید.
+
+## LICENSE
+
+مجوز MIT - برای جزئیات بیشتر به فایل [LICENSE](LICENSE) مراجعه کنید.
