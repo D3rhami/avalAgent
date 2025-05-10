@@ -1,4 +1,4 @@
-
+![Icon](https://github.com/D3rhami/avalai-agent/blob/versions/icon.jpg)
 🎃 [تغییر زبان به فارسی اینجا کلیک کنید](https://github.com/D3rhami/avalai-agent/blob/versions/README.)
 
 # AvalAgent 1.0.4
