@@ -238,6 +238,9 @@ agent.log_credit_info_table()
 ## پشتیبانی از مدل‌ها
 
 مدل‌های سازگار با OpenAI که از طریق API AvalAI در دسترس هستند.
+ 
+[مدل های پشتیبانی شده در اینجا ببنید](https://docs.avalai.ir/fa/models/index) .
+
 
 ## مدیریت خطا
 

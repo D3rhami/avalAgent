@@ -215,7 +215,7 @@ agent.log_credit_info_table()
 
 ## Model Support
 
-OpenAI-compatible models available through the [AvalAI](https://avalai.ir/) API.
+OpenAI-compatible models available through the [AvalAI](https://docs.avalai.ir/fa/models/index) API.
 
 ## Error Handling
 
